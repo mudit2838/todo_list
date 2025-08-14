@@ -5,7 +5,10 @@ It allows users to create, edit, delete, and set priorities for tasks.
 
 ## Live Demo
 
-Deployed on Render: [Todo List Live Demo on Render](https://todo-list-5bbi.onrender.com)
+Deployed on Render: 
+ ```bash
+   https://todo-list-5bbi.onrender.com
+ 
 
 ## Features
 
@@ -41,7 +44,7 @@ project-folder/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/todo_list.git
+   git clone https://github.com/mudit2838/todo_list.git
    cd todo_list
 
 2. Install dependencies
