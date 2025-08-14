@@ -1,14 +1,10 @@
-Here’s your **final README.md** with both the clickable Render badge **and** the copy box for quick use:
 
-````markdown
 # Todo List App
 
 A simple Todo List web application built with **Node.js**, **Express**, **MongoDB Atlas**, and **EJS**.  
 Users can add, edit, delete tasks, and set priorities.
 
 ## Live Demo
-
-[![Live Demo on Render](https://img.shields.io/badge/Live%20Demo-Click%20Here-blue)](https://todo-list-updated-kzh1.onrender.com)
 
 ### Copy Link
 ```bash
@@ -98,12 +94,4 @@ project-folder/
 
 ---
 
-**License**
-MIT License
 
-```
-
-If you push this `README.md` to GitHub, you’ll have:  
-- A **blue clickable badge** for your live app  
-- A **bash code block** with a copy icon for quick sharing  
-```
