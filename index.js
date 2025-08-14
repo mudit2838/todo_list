@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
 var app = express();
 const port = process.env.PORT || 8000;
 app.set('view engine', 'ejs');
@@ -7,9 +8,12 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended:true}));
 
 app.use(express.static('public'));
-
+dotenv.config();
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/todo");
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("Connected to MongoDB Atlas"))
+  .catch(err => console.error("MongoDB connection error:", err));
+
 
 const trySchema = new mongoose.Schema({
   title: String,
