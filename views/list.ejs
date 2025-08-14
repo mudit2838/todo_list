@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>todo list project</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+  <div class="box">
+    <h1>Todo List</h1>
+    <% if (typeof alert !== 'undefined' && alert) { %>
+      <script>
+        alert("<%= alert %>");
+      </script>
+    <% } %>
+  </div>
+  <div class="box">
+  <% ejes.forEach(function(items){ %>
+    <div class="item">
+      <!-- Task Title -->
+      <span class="task-title"><%= items.title %></span>
+      <!-- Task Priority -->
+      <span class="task-priority"><%= items.priority %></span>
+      <!-- Edit Form (icon only) -->
+      <form action="/edit" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="<%= items._id %>">
+        <input type="hidden" name="name" value="<%= items.title %>">
+        <input type="hidden" name="priority" value="<%= items.priority %>">
+        <button type="button" class="edit-btn" title="Edit" onclick="showEditForm('<%= items._id %>', '<%= items.title %>', '<%= items.priority %>')">
+          <i class="fa fa-pencil"></i>
+        </button>
+      </form>
+      <!-- Delete Form (icon only) -->
+      <form action="/delete" method="post" style="display:inline;">
+        <input type="hidden" name="id" value="<%= items._id %>">
+        <button type="submit" class="delete-btn" title="Delete">
+          <i class="fa fa-trash"></i>
+        </button>
+      </form>
+    </div>
+  <% }) %>
+  <!-- Inline Add Form -->
+  <form action="/" method="post" class="add-form">
+    <input type="text" name="ele1" placeholder="enter the task" required>
+    <select name="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button type="submit">+</button>
+  </form>
+</div>
+
+<!-- Edit Modal (hidden by default) -->
+<div id="editModal" style="display:none; position:fixed; top:30%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.2); z-index:1000;">
+  <form id="editForm" action="/edit" method="post">
+    <input type="hidden" name="id" id="editId">
+    <input type="text" name="name" id="editName" required>
+    <select name="priority" id="editPriority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button type="submit"><i class="fa fa-check"></i></button>
+    <button type="button" onclick="closeEditForm()"><i class="fa fa-times"></i></button>
+  </form>
+</div>
+<script>
+  function showEditForm(id, title, priority) {
+    document.getElementById('editId').value = id;
+    document.getElementById('editName').value = title;
+    document.getElementById('editPriority').value = priority;
+    document.getElementById('editModal').style.display = 'block';
+  }
+  function closeEditForm() {
+    document.getElementById('editModal').style.display = 'none';
+  }
+</script>
+</body>
+
+</html>

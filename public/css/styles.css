@@ -1,0 +1,256 @@
+html {
+  background-color: #E4E9FD;
+  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  min-height: 1000px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: #000;
+  padding: 10px;
+  text-align: center;
+}
+
+.box {
+  max-width: 400px;
+  margin: 50px auto;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  width: 90%;
+}
+
+#heading {
+  background-color: #A683E3;
+  text-align: center;
+}
+
+.item {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #F1F1F1;
+  gap: 10px;
+}
+.item:last-child {
+  border-bottom: 0;
+}
+
+.task-title {
+  flex: 2;
+  font-size: 18px;
+  margin-left: 10px;
+  word-break: break-word;
+}
+.task-priority {
+  flex: 1;
+  font-size: 16px;
+  color: #6c4fb6;
+  margin-left: 10px;
+}
+
+/* Checkbox and line-through effect */
+input[type="checkbox"]:checked + p {
+  text-decoration: line-through;
+  text-decoration-color: red;
+}
+input[type="checkbox"] {
+  margin-right: 50px;
+}
+
+/* General button styles */
+button,
+.item button,
+.edit-btn,
+.delete-btn {
+  min-height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: #A683E3;
+  font-size: 22px;
+  cursor: pointer;
+  margin-left: 5px;
+  padding: 0;
+  transition: background 0.2s;
+}
+button:hover,
+.item button:hover,
+.edit-btn:hover,
+.delete-btn:hover {
+  background: #f3f3f3;
+  color: #6c4fb6;
+}
+
+/* Add task form button */
+.add-form button[type="submit"] {
+  min-height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background-color: #A683E3;
+  color: #fff;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background 0.2s;
+}
+.add-form button[type="submit"]:hover {
+  background-color: #6c4fb6;
+}
+
+/* Input text styles */
+input[type="text"] {
+  text-align: center;
+  height: 60px;
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+  font-size: 40px;
+  font-weight: 200;
+  width: 313px;
+}
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 #A683E3;
+}
+
+/* Placeholder styles */
+::placeholder {
+  color: grey;
+  opacity: 1;
+}
+
+footer {
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Select dropdown inside .item and .add-form */
+.item select,
+.add-form select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #A683E3;
+  background: #f7f7f7;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Input text inside .item and .add-form */
+.item input[type="text"],
+.add-form input[type="text"] {
+  width: 120px;
+  font-size: 18px;
+  margin-top: 0;
+  margin-left: 10px;
+  background: #f7f7f7;
+  border-radius: 4px;
+  border: 1px solid #A683E3;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+/* Center the add task form */
+.add-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto 0 auto;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Edit modal styles */
+#editModal input[type="text"],
+#editModal select {
+  margin: 5px 10px 5px 0;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #A683E3;
+}
+#editModal button {
+  margin-left: 5px;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .box {
+    max-width: 600px;
+    width: 95%;
+  }
+  .item input[type="text"],
+  .add-form input[type="text"] {
+    width: 100px;
+    font-size: 16px;
+  }
+  .task-title {
+    font-size: 16px;
+  }
+  .task-priority {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .box {
+    max-width: 98vw;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 50px;
+    gap: 5px;
+    padding: 8px 0;
+  }
+  .task-title,
+  .task-priority {
+    margin-left: 0;
+    font-size: 15px;
+  }
+  .item input[type="text"],
+  .add-form input[type="text"] {
+    width: 90vw;
+    max-width: 220px;
+    font-size: 15px;
+    margin-left: 0;
+  }
+  .item select,
+  .add-form select {
+    font-size: 15px;
+    margin-left: 0;
+  }
+  .add-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .add-form button[type="submit"] {
+    margin-left: 0;
+    width: 100%;
+    min-height: 35px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 22px;
+    padding: 5px;
+  }
+  .box {
+    padding: 5px;
+  }
+  .item input[type="text"],
+  .add-form input[type="text"] {
+    font-size: 13px;
+    max-width: 140px;
+  }
+}
